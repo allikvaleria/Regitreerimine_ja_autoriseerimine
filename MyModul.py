@@ -66,3 +66,28 @@ def nime_või_parooli_muutmine(k,p):
             p[indeks]=uus_parooli
             print("parooli",parooli,"uus parooli",uus_parooli)
             break
+def unustanud_parooli_taastamine(k,p):
+    """
+    """
+    upt=input("Kas soovite oma unustatud parooli taastada? Jah, Ei ")
+    # if upt=="Jah":
+    #     #indeks=p.index(parooli) 
+    #         while True:
+    #             unustanud_parooli=input("Sisesta unustanud parooli : ")
+    #             p[indeks]=unustanud_parooli
+    #             print("Sinu unustanud parooli on",unustanud_parooli)
+    #             break
+    if upt=="Jah":
+        unustanud_parooli=input("Sisesta unustanud parooli : ")
+        # if paroolid not in p :
+            # indeks=p.index(parooli) 
+            # print()
+        while True:
+            upt=input("Sisesta unustanud parooli uuesti : ")
+            p[indeks]=unustanud_parooli
+            print("Sinu uus parooli", unustanud_parooli)
+                if paroolid not in p :
+                p.append(paroolid)
+            break
+    if upt=="Ei":
+        print("Valige loendist :")
