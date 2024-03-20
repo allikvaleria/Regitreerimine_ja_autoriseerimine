@@ -10,6 +10,9 @@ while True :
     if vastus==3 :
         print(kasutaja,paroolid)
         nime_või_parooli_muutmine(kasutaja,paroolid)
+    if vastus==4 :
+        print(kasutaja,paroolid)
+        unustanud_parooli_taastamine(kasutaja,paroolid)
     #    print("Head aega!")
     #if vastus==4 :
     #    nvpm=input("Mida sa tahad muutumine?/nN-nime/nP-parooli")
