@@ -14,13 +14,19 @@ def registreerimine(k,p):
             if kasutaja not in k :
                 k.append(kasutaja)
                 break
-            else :
+            else:
                 print("Viga, sama nimega kasutaja on juba olemas!") 
         while True :
-            paroolid=input("Sisesta parooli : ")
-            if paroolid not in p :
-                p.append(paroolid)
-                print("Te olete registreerunud! ")
+            valik=input("Milline parooli sa tahad? 1-autopass 2-mypass")
+            if valik=="1" :
+                parool=autopass()
+                p.append(parool)
+                print("Olete registreeritud!")
+                break
+            if valik=="2":
+                parool=mypass(k)
+                p.append(parool)
+                print("Olete registreeritud!")
                 break
     if r=="Ei":
           print("Head aega!") 
@@ -107,14 +113,14 @@ def unustanud_parooli_taastamine(k,p):
         server.quit()
 
 
-def loe_failist(fail:str)->list:
+def loe_failist(kasutaja,paroolid):
     """Loeme failist read ja salvestame järjendisse. Funktsioon tagastab järjend
     :param str fail:
     rtype: list
     """
     fail="Kasutajad_ja_paroolid"
     f=open(fail,'r',encoding="utf-8") #try
-    järjend=[]
+    järjend=[kasutaja,paroolid]
     for rida in f:
         järjend.append(rida.strip())
     f.close()
@@ -132,4 +138,52 @@ def kirjuta_failisse(fail:str,kasutaja,paroolid):
             f.write(f"{k}  {p}"+"\n")
     except: 
             print("Viga")
+
     kirjuta_failisse("Text.txt")
+
+        
+
+
+
+import string
+def mypass(k: int):
+    while True :
+            parool=input("Sisesta parooli : ")
+            if len(parool)<8:            
+                print("Parool peab koosnema vähemalt 8 tähemärgist")
+                continue        
+            elif re.search("[1,2,3,4,5,6,7,8,9,0]", parool) is None:
+                print("Numbreid pole")   
+                continue
+            elif re.search("[a-z]", parool) is None:      
+                print("Paroolis ei ole väiketähti") 
+                continue       
+            elif re.search("[A-Z]", parool) is None:
+                print("Paroolis pole suuri tähti")            
+                continue
+            elif re.search("[$@^=.,:;!_*-+()/#¤%&]", parool) is None:        
+                print("Paroolis pole erimärke")
+                continue      
+            else:
+                print("Teie parool on turvaline!")         
+                return parool
+
+
+    
+def autopass():
+    str0=".,:;!_*-+()/#¤%&"
+    str1 = '0123456789'
+    str2 = 'qwertyuiopasdfghjklzxcvbnm'
+    str3 = str2.upper()
+    print(str3) # 'QWERTYUIOPASDFGHJKLZXCVBNM'
+    str4 = str0+str1+str2+str3
+    print(str4)
+    ls = list(str4)
+    print(ls)
+    random.shuffle(ls)
+    print(ls)
+    # Извлекаем из списка 12 произвольных значений
+    paroolid = ''.join([random.choice(ls) for x in range(12)])
+    # Пароль готов
+    print(paroolid)
+    return paroolid
