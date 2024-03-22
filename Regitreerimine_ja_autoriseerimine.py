@@ -24,3 +24,4 @@ while True :
             unustanud_parooli_taastamine(kasutaja,paroolid [kasutaja.index(nimi)])
     if vastus==5 :
         print("Head aega!")
+
