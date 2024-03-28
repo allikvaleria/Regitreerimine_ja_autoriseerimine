@@ -63,20 +63,20 @@ def nime_või_parooli_muutmine(k,p):
         if kasutaja in k: 
             indeks=k.index(kasutaja) 
         nimi_muutumine=input("Mida sa tahad muuta? 1-kasutajanime 2-parooli : ")
-    if nimi_muutumine=="1":
-        while True:
-            kasutaja=input("Sisesta kasutajanimi : ")
-            uus_kasutaja=input("Sisesta uus kasutajanimi : ")
-            k[indeks]=uus_kasutaja
-            print("Sinu uus nimi", uus_kasutaja)
-            break
-    if nimi_muutumine=="2":
-        while True:
-            parooli=input("Sisesta parooli : ")
-            uus_parooli=input("Sisesta uus parooli : ")
-            p[indeks]=uus_parooli
-            print("parooli",parooli,"uus parooli",uus_parooli)
-            break
+        if nimi_muutumine=="1":
+            while True:
+                kasutaja=input("Sisesta kasutajanimi : ")
+                uus_kasutaja=input("Sisesta uus kasutajanimi : ")
+                k[indeks]=uus_kasutaja
+                print("Sinu uus nimi", uus_kasutaja)
+                break
+        if nimi_muutumine=="2":
+            while True:
+                parooli=input("Sisesta parooli : ")
+                uus_parooli=input("Sisesta uus parooli : ")
+                p[indeks]=uus_parooli
+                print("parooli",parooli,"uus parooli",uus_parooli)
+                break
             
 
 def unustanud_parooli_taastamine(k,p):
