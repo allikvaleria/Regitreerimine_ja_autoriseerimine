@@ -39,14 +39,14 @@ def autoriseerimine(k,p):
     if a=="Jah":
         while True :
             kasutaja=input("Sisesta kasutajanimi : ")
-            if kasutaja not in k :
+            if kasutaja  in k :
                 k.append(kasutaja)
                 break
             else :
                 print("Viga!") 
         while True :
             paroolid=input("Sisesta parooli : ")
-            if paroolid not in p :
+            if paroolid  in p :
                 p.append(paroolid)
                 break
             print("Te olete autoriseeritud!")
@@ -118,18 +118,19 @@ def loe_failist(kasutaja,paroolid):
     :param str fail:
     rtype: list
     """
-    fail="Kasutajad_ja_paroolid"
+    fail="Kasutajad_ja_paroolid.txt"
     f=open(fail,'r',encoding="utf-8") #try
     järjend=[kasutaja,paroolid]
     for rida in f:
         järjend.append(rida.strip())
     f.close()
     return järjend
-def kirjuta_failisse(fail:str,kasutaja,paroolid):
+
+def kirjuta_failisse(kasutaja,paroolid):
     """
     funktioon ümber kirjutab andmed failis
     """
-    fail="Kasutajad_ja_paroolid"
+    fail="Kasutajad_ja_paroolid.txt"
     try :
         f=open(fail,'w',encoding="utf-8")
         for i in range(len(kasutaja)):
@@ -138,8 +139,7 @@ def kirjuta_failisse(fail:str,kasutaja,paroolid):
             f.write(f"{k}  {p}"+"\n")
     except: 
             print("Viga")
-
-    kirjuta_failisse("Text.txt")
+            
 
         
 
